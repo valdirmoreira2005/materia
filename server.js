@@ -45,8 +45,8 @@ server.get('/materia/:id', async function(request, response) {
 //POST
 server.post('/materia', async function(request, response) {
     const nome = request.body.nome;
-    const professor = request.body.cantor;
-    const semestre = request.body.ano;
+    const professor = request.body.professor;
+    const semestre = request.body.semestre;
     const sql= `INSERT INTO materia (nome, professor, semestre) VALUES ($1, $2, $3)`;
     await pool.query(sql, [nome, professor, semestre]);
     return response.status(204).send();
